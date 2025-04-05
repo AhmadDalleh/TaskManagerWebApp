@@ -3,16 +3,15 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
 <dev class="container p-3">
     <dev class="row pt-4">
         <dev class="col-6">
-            <h2 class="text-primary">Items View</h2>
+            <h2 class="text-primary">Users View</h2>
         </dev>
         <dev class="col-6 text-end">
-            <a asp-controller="Items" asp-action="New" class="btn btn-primary">
-                <i class="bi bi-plus"></i> &nbsp; Add New Item
+            <a asp-controller="Users" asp-action="New" class="btn btn-primary">
+                <i class="bi bi-plus"></i> &nbsp; Add New User
             </a>
         </dev>
     </dev>
@@ -35,14 +34,14 @@
                 @foreach (var user in Model)
                 {
                     <tr class="table table-primary">
-                        <td scope="row" width="50%">
+                        <td scope="row" width="25%">
                             @user.UserName
                         </td>
 
-                        <td scope="row" width="30%">
+                        <td scope="row" width="25">
                             @user.Email
                         </td>
-                        <td scope="row" width="30%">
+                        <td scope="row" width="25%">
                             @user.CreatedAt
                         </td>
                         <td>

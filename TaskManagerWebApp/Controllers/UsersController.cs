@@ -7,9 +7,9 @@ namespace TaskManagerWebApp.Controllers
     public class UsersController : Controller
     {
         private readonly AppDbContext _context;
-        public UsersController(AppDbContext context) 
+        public UsersController(AppDbContext context)
         {
-            _context = context;   
+            _context = context;
         }
 
         public IActionResult Index()
@@ -17,6 +17,24 @@ namespace TaskManagerWebApp.Controllers
 
             IEnumerable<User> usersList = _context.Users.ToList();
             return View(usersList);
+        }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+       public IActionResult New(User user) 
+        {
+            if (ModelState.IsValid) 
+            {
+                _context.Users.Add(user);
+                _context.SaveChanges(); 
+                return RedirectToAction("Index");
+            }
+            else
+                return View(user);
         }
     }
 }
