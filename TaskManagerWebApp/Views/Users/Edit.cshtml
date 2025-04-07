@@ -1,17 +1,17 @@
 ﻿@model User
 @{
-    ViewData["Title"] = "New";
+    ViewData["Title"] = "Edit";
 }
-
 
 <form method="post">
     <div class="border p-3 mt-4">
         <div calss="row pb-2">
-            <h2 class="text-primary">Add New User</h2>
+            <h2 class="text-primary">Edit User </h2>
             <hr />
         </div>
-        <div asp-validation-summary="All">
-        </div>
+        <div asp-validation-summary="All"></div>
+        <!-- Hidden ID field -->
+        <input type="hidden" asp-for="UserId" />
         <div class="mb-3">
             <label asp-for="UserName"></label>
             <input asp-for="UserName" class="form-control" />
@@ -21,19 +21,17 @@
             <label asp-for="Email"></label>
             <input asp-for="Email" class="form-control" />
             <span asp-validation-for="Email" class="text-danger"></span>
-
         </div>
-        <div class="mb-3">
+        <div>
             <label asp-for="PasswordHash"></label>
             <input asp-for="PasswordHash" class="form-control" />
             <span asp-validation-for="PasswordHash" class="text-danger"></span>
-
         </div>
         <br />
         <hr />
         <button type="submit" class="btn btn-primary" style="width:150px">Save</button>
-        <a asp-action="Index" asp-controller="Users" class="btn btn-secondary" style="width:150px">
-            back to users
+        <a asp-action="Index" asp-controller="Items" class="btn btn-secondary" style="width:150px">
+            back to items
         </a>
     </div>
 </form>

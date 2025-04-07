@@ -17,12 +17,12 @@ namespace TaskManagerWebApp.Models
         [EmailAddress]
         [MaxLength(500,ErrorMessage ="Bad email format")]
         public string? Email { get; set; }
-        [Required]
-        [PasswordPropertyText]
+
+        [DataType(DataType.Password)]
         [DisplayName("Password")]
         public string? PasswordHash { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public List<Task>? Tasks{ get; set; }
+        public List<Tasks>? Tasks{ get; set; }
         public List<Category>? Categories { get; set; }
 
     }

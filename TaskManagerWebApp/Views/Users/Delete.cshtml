@@ -1,0 +1,39 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div calss="row pb-2">
+            <h2 class="text-primary">Delete User</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All">
+        </div>
+        <input asp-for="UserId" hidden/>
+
+        <div class="mb-3">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" disabled class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" disabled class="form-control" />
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="PasswordHash"></label>
+            <input asp-for="PasswordHash" disabled class="form-control" />
+            
+
+        </div>
+        <br />
+        <hr />
+        <button type="submit" class="btn btn-primary" style="width:150px">Delete</button>
+        <a asp-action="Index" asp-controller="Users" class="btn btn-secondary" style="width:150px">
+            back to users
+        </a>
+    </div>
+</form>
+

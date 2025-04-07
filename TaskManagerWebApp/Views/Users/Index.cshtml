@@ -5,6 +5,12 @@
 
 
 <dev class="container p-3">
+    @if (TempData["successData"] != null)
+    {
+        <h6 style="color:limegreen ">
+            @TempData["successData"]
+        </h6>
+    }
     <dev class="row pt-4">
         <dev class="col-6">
             <h2 class="text-primary">Users View</h2>
@@ -20,10 +26,10 @@
             <thead>
                 <tr>
                     <th scope="col">
-                        Item Name
+                        User Name
                     </th>
                     <th scope="col">
-                        Item Price
+                        Email 
                     </th>
                     <th scope="col">
                         Created At 
@@ -45,11 +51,11 @@
                             @user.CreatedAt
                         </td>
                         <td>
-                            <a asp-controller="" asp-action="New">
+                            <a asp-controller="Users" asp-action="Edit" asp-route-Id="@user.UserId">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             &nbsp;
-                            <a asp-controller="" asp-action="New" class="">
+                            <a asp-controller="Users" asp-action="Delete" asp-route-Id="@user.UserId">
                                 <i class="bi bi-trash3"></i>
                             </a>
 
